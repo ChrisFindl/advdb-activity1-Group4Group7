@@ -1,29 +1,75 @@
-# advdb-activity1-Group4Group7
-Combined group from both group numbers
+# DBAD-4000 Activity 1 – Gym & Fitness Centre
 
-Majd task 3 Identify key business rules and entities.
+## Group
+Combined Group 4 and Group 7
 
-    Define the main entities (e.g., Member, Trainer, Class, Payment).
-    Identify additional entities, if needed (e.g., MembershipType, Schedule, Facility).
-    Write 4–6 clear rules describing how data interacts (e.g., “Each trainer can lead multiple classes.”).
+## Design Process
 
+We started by reviewing the gym scenario and identifying the main data
+the system needs to manage.
 
-Vivek task 4 List the attributes for each entity, specify primary keys and foreign keys, and define relationships (e.g., 1–1, 1–M, M–M), including cardinalities and participation.
+As a team, we brainstormed questions about members, trainers, classes,
+enrollments, payments, relationships, and specialization. We discussed
+different options and made our final decisions together.
 
-Saihaj Task 5 Apply normalization up to 3NF to eliminate redundancy.
-Note: You don’t need to show every normalization step but you should explain key decisions (e.g., “separated payment method from payment details to meet 3NF”).
+Based on these decisions, we selected six entities: PERSON, MEMBER,
+TRAINER, FITNESS_CLASS, ENROLLMENT, and PAYMENT. We then defined the
+attributes, PK/FK, relationships, cardinalities, and participation.
 
-Chris Task 6 Create an enhanced EERD using a modelling tool such as ERDPlus, Lucidchart, Draw.io. Your EERD should include:
+We reviewed the design up to 3NF and created the final EERD in Lucidchart.
 
-    4–6 entities with attributes
-    Primary and foreign keys
-    Clear relationships with cardinalities and constraints
-    Specialization
-    Optional: weak entities, derived attributes if relevant
+**Modelling Tool:** Lucidchart
 
+## Business Rules
 
-Duy Task 8 Create a short document that includes the following items: 
+1. Every PERSON must be either a MEMBER or a TRAINER, but not both.
+2. A TRAINER can teach many FITNESS_CLASS sessions, but each class has one trainer.
+3. A MEMBER can enroll in many classes, and each class can have many members.
+4. Each ENROLLMENT connects one MEMBER to one FITNESS_CLASS. The combination of `member_id` and `class_id` must be unique.
+5. A MEMBER can make many PAYMENT records, but each PAYMENT belongs to one MEMBER.
+6. A MEMBER must be at least 16 years old and have a signed waiver before enrollment.
 
-    A short data dictionary in table format that describes each entity and attribute. Include attribute names, definitions, data types (if known) and any validation rules.
-    A team contribution table that includes all team member names, their roles and specific tasks (e.g., created database schema, wrote queries, handled documentation).
-    Note: List all team members, even if their contributions were limited.
+## Design Rationale
+
+PERSON is used as a supertype to avoid repeating common information in
+MEMBER and TRAINER. The specialization is Total and Disjoint.
+
+ENROLLMENT resolves the M:N relationship between MEMBER and FITNESS_CLASS.
+PAYMENT is stored separately because one member can make many payments.
+
+The design was reviewed up to 3NF to reduce duplicated data.
+
+## EERD
+
+The final EERD was created using Lucidchart.
+
+![Gym and Fitness Centre EERD](imgs/gym-fitness-eerd.png)
+
+## Team Contributions
+
+| Team Member | Main Task |
+|---|---|
+| Majd | Business rules and entities |
+| Vivek | Attributes, PK/FK, relationships, cardinalities and participation |
+| Saihaj | Normalization to 3NF and design review |
+| Christopher Findlay | EERD design in Lucidchart |
+| Duy Pham | Database design, documentation and data dictionary |
+
+All team members participated in brainstorming and reviewed the final
+database design together.
+
+## AI Use
+
+ChatGPT was used as a support tool during our design process. Our team
+brainstormed database questions based on the scenario and concepts learned
+in class. AI was also used to suggest some general ideas and check English
+wording.
+
+The team discussed the questions, compared different options, and made
+the final database decisions. The final design and EERD were reviewed
+and agreed on by the team.
+
+## Files
+
+- [Final PDF Report](docs/DBAD4000-Activity1-Report.pdf)
+- [EERD Image](imgs/gym-fitness-eerd.png)
