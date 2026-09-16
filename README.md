@@ -1,6 +1,7 @@
 # DBAD-4000 Activity 1 – Gym & Fitness Centre
 
 ## Group
+
 Combined Group 4 and Group 7
 
 ## Design Process
@@ -9,8 +10,27 @@ We started by reviewing the gym scenario and identifying the main data
 the system needs to manage.
 
 As a team, we brainstormed questions about members, trainers, classes,
-enrollments, payments, relationships, and specialization. We discussed
-different options and made our final decisions together.
+enrollments, payments, relationships, and specialization.
+
+### Brainstorming Questions
+
+Some of the main questions we discussed were:
+
+- What information should we store for members and trainers?
+- Should MEMBER and TRAINER be separate entities or subtypes of PERSON?
+- Can a trainer also be a member?
+- Do we need to track trainer certificates?
+- What information should we store for a fitness class?
+- How should members enroll in fitness classes?
+- Can a member enroll in many classes, and can a class have many members?
+- How should we prevent duplicate enrollments?
+- Should we track class capacity?
+- What payment information should we store?
+- What relationships and cardinalities are needed?
+- Is the database design normalized to 3NF?
+
+We discussed these questions, compared different options, and made our
+final decisions together.
 
 Based on these decisions, we selected six entities: PERSON, MEMBER,
 TRAINER, FITNESS_CLASS, ENROLLMENT, and PAYMENT. We then defined the
@@ -35,6 +55,7 @@ PERSON is used as a supertype to avoid repeating common information in
 MEMBER and TRAINER. The specialization is Total and Disjoint.
 
 ENROLLMENT resolves the M:N relationship between MEMBER and FITNESS_CLASS.
+
 PAYMENT is stored separately because one member can make many payments.
 
 The design was reviewed up to 3NF to reduce duplicated data.
@@ -61,13 +82,13 @@ database design together.
 ## AI Use
 
 ChatGPT was used as a support tool during our design process. Our team
-brainstormed database questions based on the scenario and concepts learned
-in class. AI was also used to suggest some general ideas and check English
-wording.
+created most of the brainstorming questions based on the scenario and
+concepts learned in class. AI was used to suggest some additional questions
+and general ideas, and to check English wording.
 
 The team discussed the questions, compared different options, and made
-the final database decisions. The final design and EERD were reviewed
-and agreed on by the team.
+the final database decisions. The final business rules, database design,
+documentation, and EERD were reviewed and agreed on by the team.
 
 ## Files
 
